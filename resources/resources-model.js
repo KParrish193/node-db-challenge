@@ -9,7 +9,6 @@ module.exports = {
     addResource,
     removeResource,
     getResourcesByProject,
-
 }
 
 function findResources(){
@@ -19,9 +18,6 @@ function findResources(){
 function addResource(resource){
     return db("resources")
         .insert(resource, "id")
-        .then(id => {
-            return findById(id[0])
-        });
 };
 
 function removeResource(id){
