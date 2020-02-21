@@ -30,7 +30,7 @@ exports.up = function(knex) {
             .references("id")
             .inTable("projects")
         col
-            .integer("resource")
+            .integer("resource_id")
             .notNullable()
             .unsigned()
             .references("id")
@@ -53,9 +53,6 @@ exports.up = function(knex) {
 
     .createTable("tasks", col => {
         col.increments()
-        col
-            .text("step_number")
-            .notNullable();
         col 
             .text("task_description", 128)
             .notNullable()
@@ -66,7 +63,7 @@ exports.up = function(knex) {
             .notNullable()
             .defaultTo(false)
         col
-            .integer("project")
+            .integer("project_id")
             .notNullable()
             .unsigned()
             .references("id")
